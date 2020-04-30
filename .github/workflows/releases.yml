@@ -1,0 +1,21 @@
+name: 'Releases for Source'
+
+on:
+  push:
+    branches: 
+      - master
+
+     
+
+jobs:
+  CDN:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Create a Release'
+        uses: elgohr/Github-Release-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          args: 222e
